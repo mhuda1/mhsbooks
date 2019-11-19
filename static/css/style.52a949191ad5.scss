@@ -1,0 +1,22 @@
+body{
+    overflow-x: hidden;
+}
+.header {
+    font-size: 6rem;
+}
+.logo {
+    width: 100px;
+    img {
+    width: auto;
+    height: 100px;
+    }
+}
+#footer{
+    bottom: 0;
+}
+#login{
+    right: 0;
+}
+#containerNav{
+    width: 100vw;
+}

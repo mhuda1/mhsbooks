@@ -1,0 +1,17 @@
+#Ignore selenium functional test
+chromedriver
+chromedriver.exe
+/bookstore/static/*
+
+#Ignore cache
+__psycache__
+
+#Ignore local db
+
+#Ignore static
+staticfiles
+
+#Coverage.py files
+.coverage
+
+.vscode
