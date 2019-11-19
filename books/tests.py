@@ -13,7 +13,7 @@ class UnitTest(TestCase):
             'books').name, 'books')
 
     def test_profile_url_is_exist(self):
-        response = Client().get('/coba')
+        response = Client().get('/')
         self.assertEqual(response.status_code, 200)
         self.assertNotEqual(response.status_code, 404)
 
@@ -22,6 +22,6 @@ class UnitTest(TestCase):
         self.assertEqual(resolve(found).func, index)
 
     def test_profile_using_correct_template(self):
-        response = Client().get('/coba')
+        response = Client().get('/')
         self.assertTemplateUsed(response, 'index.html')
         self.assertContains(response, 'MHSBooks.com')
