@@ -13,12 +13,12 @@ class UnitTest(TestCase):
             'login').name, 'login')
 
     def test_login_url_is_exist(self):
-        response = Client().get('accounts/login/')
+        response = Client().get('/accounts/login/')
         self.assertEqual(response.status_code, 200)
         self.assertNotEqual(response.status_code, 404)
 
     def test_register_url_is_exist(self):
-        response = Client().get('accounts/register/')
+        response = Client().get('/accounts/register/')
         self.assertEqual(response.status_code, 200)
         self.assertNotEqual(response.status_code, 404)
 
@@ -33,4 +33,4 @@ class UnitTest(TestCase):
 
     def test_register_using_correct_template(self):
         response = Client().get('/accounts/register/')
-        self.assertTemplateUsed(response, 'login.html')
+        self.assertTemplateUsed(response, 'register.html')
