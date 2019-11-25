@@ -13,37 +13,50 @@
 
 <body>
 
-    <nav class="navbar navbar-default">
-        <div class="logo navbar-header col-log-2 col-md-2 col-sm-3">
-            <img src="{% static 'MHSBooks.png' %}" href="{% url 'books:home' %}" />
-        </div>
+    <div class="content">
+        <nav class="navbar navbar-default">
+            <div class="logo navbar-header col-log-2 col-md-2 col-sm-3">
+                <img src="{% static 'MHSBooks.png' %}" href="{% url 'books:home' %}" />
+            </div>
 
-        <div class="navbar-search col-lg-6 col-md-6 col-sm-12 d-flex flex-direction-row">
-            <form id="searchForm" class="flex-grow-1">
-                <input type="text" class="form-control" id="searchText" placeholder="Search Books...">
-            </form>
-            <button type="button" id="submit" class="btn btn-warning mx-3">Search</button>
-        </div>
+            <div class="navbar-search col-lg-6 col-md-6 col-sm-12 d-flex flex-direction-row">
+                <form id="searchForm" class="flex-grow-1">
+                    <input type="text" class="form-control" id="searchText" placeholder="Search Books...">
+                </form>
+                <button type="button" id="submit" class="btn btn-warning mx-3">Search</button>
+            </div>
+            {% if user.is_authenticated %}
+            <div id="logout" class="col-lg-2 col-md-2 col-sm-12">
+                <a href="{% url 'login:logout' %}"><button type="button" class="btn btn-link"><strong>Logout</strong></button></a>
+            </div>
+            {% else %}
+            <div id="login" class="col-lg-2 col-md-2 col-sm-12">
+                <a href="{% url 'login:login' %}"><button type="button" class="btn btn-link"><strong>Login /
+                            Register</strong></button></a>
+            </div>
+            {% endif %}
+        </nav>
 
-        <div id="login" class="col-lg-2 col-md-2 col-sm-12">
-            <a onclick=showAlert()><button type="button" class="btn btn-link"><strong>Login /
-                        Register</strong></button></a>
+        <div class="container">
+            
+            {% if user.is_authenticated %}
+                <div class="mt-3">
+                    <h1>Welcome, {{user.username}}</h1>
+                </div>
+            {% endif %}
+            <div id='alert' class="mt-3"></div>
+            <table class="table table-hover mt-4">
+                <thead>
+                    <tr class="text-center row">
+                        <th class="col-lg-2 col-md-6 col-sm-6 col-6" scope="col">Cover</th>
+                        <th class="col-lg-4 col-md-6 col-sm-6 col-6" scope="col">Title</th>
+                        <th class="col-lg-6 col-md-12 col-sm-12" scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody id="books">
+                </tbody>
+            </table>
         </div>
-    </nav>
-
-    <div class="container">
-        <div id='alert' class="mt-3"></div>
-        <table class="table table-hover mt-4">
-            <thead>
-                <tr class="text-center row">
-                    <th class="col-lg-2 col-md-6 col-sm-6 col-6" scope="col">Cover</th>
-                    <th class="col-lg-4 col-md-6 col-sm-6 col-6" scope="col">Title</th>
-                    <th class="col-lg-6 col-md-12 col-sm-12" scope="col">Description</th>
-                </tr>
-            </thead>
-            <tbody id="books">
-            </tbody>
-        </table>
     </div>
 
     <footer class="page-footer font-small bg-warning" id="footer">

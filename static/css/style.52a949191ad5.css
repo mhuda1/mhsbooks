@@ -15,10 +15,6 @@ body {
   height: 100px;
 }
 
-.content {
-  min-height: calc(100vh - 70px);
-}
-
 #footer {
   bottom: 0;
 }
@@ -30,4 +26,4 @@ body {
 #containerNav {
   width: 100vw;
 }
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style.52a949191ad5.css.map */

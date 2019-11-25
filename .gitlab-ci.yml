@@ -20,7 +20,7 @@ Testing:
     - python manage.py runserver 8000 &
   when: on_success
   script:
-    - coverage run --include='books/*' manage.py test
+    - coverage run --include='*' manage.py test
     - coverage report -m
 
 Deployment:

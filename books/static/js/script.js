@@ -25,7 +25,7 @@ function searchBooks(searchText) {
 
 
 function getBooks() {
-    $.ajax("https://www.googleapis.com/books/v1/volumes?q=website")
+    $.ajax("https://www.googleapis.com/books/v1/volumes?q=django&maxResults=5")
         .done(response => {
             printToSite(response)
         })
@@ -77,6 +77,7 @@ function checkUndefined(param) {
     }
 }
 
+
 function truncateText(paragraph, maxLength) {
     if (paragraph.length > maxLength) {
         paragraph = paragraph.substr(0, maxLength) + '...';
@@ -98,4 +99,9 @@ function showAlert() {
 
 function hideAlert() {
     $('#alert').html('')
+}
+
+function setFavorites() {
+    console.log(this)
+    console.log("a");
 }

@@ -11,6 +11,9 @@ body{
     height: 100px;
     }
 }
+.content{
+    min-height: calc(100vh - 70px);
+}
 #footer{
     bottom: 0;
 }
